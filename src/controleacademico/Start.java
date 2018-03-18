@@ -12,6 +12,7 @@ public class Start {
 		RDM widson = new RDM("Widson", "Claculo Numérico", "Seg. 18:00, Qui. 20:00", "Paulo Barbosa");
 		RDM jose = new RDM("José", "Programação", "Seg. 18:00, Qui. 20:00", "Robson");
 		RDM carlos = new RDM("Widson", "Claculo Numérico", "Seg. 18:00, Qui. 20:00", "Paulo Barbosa");
+		RDM piaminino = new RDM("Widson", "Claculo Numérico", "Seg. 18:00, Qui. 20:00", "Paulo Barbosa");
 		
 		
 
