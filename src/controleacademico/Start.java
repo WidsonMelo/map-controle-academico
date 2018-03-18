@@ -35,6 +35,7 @@ public class Start {
         Disciplina.adicionarAlunoNaDisciplina(d5, a2);
         Disciplina.adicionarAlunoNaDisciplina(d5, a3);
         Disciplina.adicionarAlunoNaDisciplina(d5, a4);
+        
         Disciplina.adicionarAlunoNaDisciplina(d5, a5);
         
         //Mostrando os alunos que estão cadastrados na disciplina d5
