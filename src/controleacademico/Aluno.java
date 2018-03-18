@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Aluno {
 
-	public String nome;
-	public Integer matricula;
+	public String nomeAluno;
+	public String matriculaAluno;
 	public static ArrayList<Disciplina> listaDeDisciplinasDoAluno = new ArrayList<>();
 	
 	public Aluno() {
@@ -41,7 +41,7 @@ public class Aluno {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((nomeAluno == null) ? 0 : nomeAluno.hashCode());
 		return result;
 	}
 
@@ -54,28 +54,28 @@ public class Aluno {
 		if (getClass() != obj.getClass())
 			return false;
 		Aluno other = (Aluno) obj;
-		if (nome == null) {
-			if (other.nome != null)
+		if (nomeAluno == null) {
+			if (other.nomeAluno != null)
 				return false;
-		} else if (!nome.equals(other.nome))
+		} else if (!nomeAluno.equals(other.nomeAluno))
 			return false;
 		return true;
 	}
 
 	public String getNome() {
-		return nome;
+		return nomeAluno;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nomeAluno = nome;
 	}
 
-	public Integer getMatricula() {
-		return matricula;
+	public String getMatricula() {
+		return matriculaAluno;
 	}
 
-	public void setMatricula(Integer matricula) {
-		this.matricula = matricula;
+	public void setMatricula(String matricula) {
+		this.matriculaAluno = matricula;
 	}
 
 }

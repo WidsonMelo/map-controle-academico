@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Professor {
     
-    public String nome;
-    public Integer matricula;
+    public String nomeProfessor;
+    public String matriculaProfessor;
     public static ArrayList<Disciplina> listaDeDisciplinasDoProfessor = new ArrayList<>();
     
     public Professor() {
@@ -40,19 +40,19 @@ public class Professor {
     }       
 
     public String getNome() {
-        return nome;
+        return nomeProfessor;
     }
     
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nomeProfessor = nome;
     }
     
-    public Integer getMatricula() {
-        return matricula;
+    public String getMatricula() {
+        return matriculaProfessor;
     }
     
-    public void setMatricula(Integer matricula) {
-        this.matricula = matricula;
+    public void setMatricula(String matricula) {
+        this.matriculaProfessor = matricula;
     }
 
 

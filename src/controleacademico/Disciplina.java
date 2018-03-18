@@ -6,12 +6,12 @@ import java.util.Objects;
 
 public class Disciplina {
 
-	public String nome;
-	public String codigo;
-	public Integer cargaHoraria;
-	public String sala;
-	public String horario;
-	public Professor professorResponsavel;
+	public String nomeDisciplina;
+	public String codigoDisciplina;
+	public String cargaHorariaDisciplina;
+	public String salaDisciplina;
+	public String horarioDisciplina;
+	public Professor professorResponsavelDisciplina;
 	public static ArrayList<Aluno> listaDeAlunosNaDisciplina = new ArrayList<>();
 	
 	public Disciplina() {
@@ -53,7 +53,7 @@ public class Disciplina {
 	@Override
 	public int hashCode() {
 		int hash = 7;
-		hash = 53 * hash + Objects.hashCode(this.nome);
+		hash = 53 * hash + Objects.hashCode(this.nomeDisciplina);
 		return hash;
 	}
 
@@ -69,7 +69,7 @@ public class Disciplina {
 			return false;
 		}
 		final Disciplina other = (Disciplina) obj;
-		if (!Objects.equals(this.nome, other.nome)) {
+		if (!Objects.equals(this.nomeDisciplina, other.nomeDisciplina)) {
 			return false;
 		}
 		return true;
@@ -80,51 +80,51 @@ public class Disciplina {
 	}
 
 	public String getNome() {
-		return nome;
+		return nomeDisciplina;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nomeDisciplina = nome;
 	}
 
 	public String getCodigo() {
-		return codigo;
+		return codigoDisciplina;
 	}
 
 	public void setCodigo(String codigo) {
-		this.codigo = codigo;
+		this.codigoDisciplina = codigo;
 	}
 
-	public Integer getCargaHoraria() {
-		return cargaHoraria;
+	public String getCargaHoraria() {
+		return cargaHorariaDisciplina;
 	}
 
-	public void setCargaHoraria(Integer cargaHoraria) {
-		this.cargaHoraria = cargaHoraria;
+	public void setCargaHoraria(String cargaHoraria) {
+		this.cargaHorariaDisciplina = cargaHoraria;
 	}
 
 	public String getSala() {
-		return sala;
+		return salaDisciplina;
 	}
 
 	public void setSala(String sala) {
-		this.sala = sala;
+		this.salaDisciplina = sala;
 	}
 
 	public String getHorario() {
-		return horario;
+		return horarioDisciplina;
 	}
 
 	public void setHorario(String horario) {
-		this.horario = horario;
+		this.horarioDisciplina = horario;
 	}
 
 	public Professor getProfessorResponsavel() {
-		return professorResponsavel;
+		return professorResponsavelDisciplina;
 	}
 
 	public void setProfessorResponsavel(Professor professorResponsavel) {
-		this.professorResponsavel = professorResponsavel;
+		this.professorResponsavelDisciplina = professorResponsavel;
 	}	
 
 }
