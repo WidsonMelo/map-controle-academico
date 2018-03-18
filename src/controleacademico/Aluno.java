@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Aluno {
 
 	public String nomeAluno;
-	public String matriculaAluno;
 	public static ArrayList<Disciplina> listaDeDisciplinasDoAluno = new ArrayList<>();
-	
-	public Aluno() {
+
+	public Aluno(String nomeAluno) {
+		setNome(nomeAluno);
 		Controle.adicionarAlunoNaLista(this);
 	}
 
@@ -23,19 +23,20 @@ public class Aluno {
 			return true;
 		}
 	}
-	
+
 	public static void disciplinasDoAluno(Aluno aluno) {
-    	for (int i = 0; i < aluno.listaDeDisciplinasDoAluno.size(); i++) {
-        	System.out.println("Disciplina " + aluno.listaDeDisciplinasDoAluno.get(i).getNome() + " de " + aluno.getNome());			
+		for (int i = 0; i < aluno.listaDeDisciplinasDoAluno.size(); i++) {
+			System.out.println(
+					"Disciplina " + aluno.listaDeDisciplinasDoAluno.get(i).getNomeDisciplina() + " de " + aluno.getNome());
 		}
-    }
-	
+	}
+
 	public static void horariosDoAluno(Aluno aluno) {
-    	System.out.println("Aluno: " + aluno.getNome());
-    	for (int i = 0; i < aluno.listaDeDisciplinasDoAluno.size(); i++) {
-        	System.out.println(aluno.listaDeDisciplinasDoAluno.get(i).getHorario());			
-		}    	
-    }
+		System.out.println("Aluno: " + aluno.getNome());
+		for (int i = 0; i < aluno.listaDeDisciplinasDoAluno.size(); i++) {
+			System.out.println(aluno.listaDeDisciplinasDoAluno.get(i).getHorarioDisciplina());
+		}
+	}
 
 	@Override
 	public int hashCode() {
@@ -68,14 +69,6 @@ public class Aluno {
 
 	public void setNome(String nome) {
 		this.nomeAluno = nome;
-	}
-
-	public String getMatricula() {
-		return matriculaAluno;
-	}
-
-	public void setMatricula(String matricula) {
-		this.matriculaAluno = matricula;
 	}
 
 }

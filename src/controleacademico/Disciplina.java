@@ -7,18 +7,17 @@ import java.util.Objects;
 public class Disciplina {
 
 	public String nomeDisciplina;
-	public String codigoDisciplina;
-	public String cargaHorariaDisciplina;
-	public String salaDisciplina;
 	public String horarioDisciplina;
 	public Professor professorResponsavelDisciplina;
 	public static ArrayList<Aluno> listaDeAlunosNaDisciplina = new ArrayList<>();
-	
-	public Disciplina() {
+
+	public Disciplina(String nomeDisciplina, String horarioDisciplina, Professor professor) {
+		setNomeDisciplina(nomeDisciplina);
+		setHorarioDisciplina(horarioDisciplina);
+		setProfessorResponsavelDisciplina(professor);
 		Controle.adicionarDisciplinaNaLista(this);
-		
-	}	
-	
+
+	}
 
 	public static void adicionarAlunoNaDisciplina(Disciplina disciplina, Aluno aluno) {
 		boolean alunoExiste = disciplina.listaDeAlunosNaDisciplina.contains(aluno);
@@ -27,28 +26,25 @@ public class Disciplina {
 		} else {
 			disciplina.listaDeAlunosNaDisciplina.add(aluno);
 			aluno.listaDeDisciplinasDoAluno.add(disciplina);
-			System.out.println("o aluno " + aluno.getNome() + " foi adicionado na disciplina " + disciplina.getNome());
+			System.out.println(
+					"o aluno " + aluno.getNome() + " foi adicionado na disciplina " + disciplina.getNomeDisciplina());
 		}
 
 	}
-	
+
 	public static void alunosDaDisciplina(Disciplina disciplina) {
 		System.out.println("==============Alunos da disciplina===============");
-		System.out.println("Disciplina " + disciplina.getNome());
-    	for (int i = 0; i < disciplina.listaDeAlunosNaDisciplina.size(); i++) {
-        	System.out.println(disciplina.listaDeAlunosNaDisciplina.get(i).getNome());			
+		System.out.println("Disciplina " + disciplina.getNomeDisciplina());
+		for (int i = 0; i < disciplina.listaDeAlunosNaDisciplina.size(); i++) {
+			System.out.println(disciplina.listaDeAlunosNaDisciplina.get(i).getNome());
 		}
-    }
-	
+	}
+
 	public static void numeroDeAlunosDaDisciplina(Disciplina disciplina) {
 		System.out.println("==========Número de Alunos da disciplina===========");
-		System.out.println("Disciplina " + disciplina.getNome());
-    	System.out.println(disciplina.listaDeAlunosNaDisciplina.size());
-    }
-	
-	
-	
-	
+		System.out.println("Disciplina " + disciplina.getNomeDisciplina());
+		System.out.println(disciplina.listaDeAlunosNaDisciplina.size());
+	}
 
 	@Override
 	public int hashCode() {
@@ -79,52 +75,28 @@ public class Disciplina {
 		listaDeAlunosNaDisciplina.add(aluno);
 	}
 
-	public String getNome() {
+	public String getNomeDisciplina() {
 		return nomeDisciplina;
 	}
 
-	public void setNome(String nome) {
-		this.nomeDisciplina = nome;
+	public void setNomeDisciplina(String nomeDisciplina) {
+		this.nomeDisciplina = nomeDisciplina;
 	}
 
-	public String getCodigo() {
-		return codigoDisciplina;
-	}
-
-	public void setCodigo(String codigo) {
-		this.codigoDisciplina = codigo;
-	}
-
-	public String getCargaHoraria() {
-		return cargaHorariaDisciplina;
-	}
-
-	public void setCargaHoraria(String cargaHoraria) {
-		this.cargaHorariaDisciplina = cargaHoraria;
-	}
-
-	public String getSala() {
-		return salaDisciplina;
-	}
-
-	public void setSala(String sala) {
-		this.salaDisciplina = sala;
-	}
-
-	public String getHorario() {
+	public String getHorarioDisciplina() {
 		return horarioDisciplina;
 	}
 
-	public void setHorario(String horario) {
-		this.horarioDisciplina = horario;
+	public void setHorarioDisciplina(String horarioDisciplina) {
+		this.horarioDisciplina = horarioDisciplina;
 	}
 
-	public Professor getProfessorResponsavel() {
+	public Professor getProfessorResponsavelDisciplina() {
 		return professorResponsavelDisciplina;
 	}
 
-	public void setProfessorResponsavel(Professor professorResponsavel) {
-		this.professorResponsavelDisciplina = professorResponsavel;
-	}	
+	public void setProfessorResponsavelDisciplina(Professor professorResponsavelDisciplina) {
+		this.professorResponsavelDisciplina = professorResponsavelDisciplina;
+	}
 
 }
