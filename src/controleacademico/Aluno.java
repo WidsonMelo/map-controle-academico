@@ -5,21 +5,23 @@ import java.util.ArrayList;
 public class Aluno {
 
 	public String nomeAluno;
-	public static ArrayList<Disciplina> listaDeDisciplinasDoAluno = new ArrayList<>();
+	public ArrayList<String> listaDeDisciplinasDoAluno = new ArrayList<>();
+	public ArrayList<String> listaDeHorariosDoAluno = new ArrayList<>();
 
 	public Aluno(String nomeAluno) {
 		setNome(nomeAluno);
-		Controle.adicionarAlunoNaLista(this);
+		RDM.adicionarAlunoNaLista(this);
 	}
 
-	public static boolean adicionarDisciplinaAoAluno(Aluno aluno, Disciplina disciplina) {
+	public static boolean adicionarDisciplinaAoAluno(Aluno aluno, Disciplina disciplina) {		
 		boolean disciplinaExiste = aluno.listaDeDisciplinasDoAluno.contains(disciplina);
 		if (disciplinaExiste == true) {
 			System.out.println("o aluno já está na disciplina");
 			return false;
 		} else {
-			aluno.listaDeDisciplinasDoAluno.add(disciplina);
-			System.out.println("o aluno não estava na disciplina, foi adicionado");
+			aluno.listaDeDisciplinasDoAluno.add(disciplina.getNomeDisciplina());
+			aluno.listaDeHorariosDoAluno.add(disciplina.getHorarioDisciplina());			
+			System.out.println("O aluno " + aluno.getNome() + " foi adicionado na disciplina " + disciplina.getNomeDisciplina());
 			return true;
 		}
 	}
@@ -27,14 +29,14 @@ public class Aluno {
 	public static void disciplinasDoAluno(Aluno aluno) {
 		for (int i = 0; i < aluno.listaDeDisciplinasDoAluno.size(); i++) {
 			System.out.println(
-					"Disciplina " + aluno.listaDeDisciplinasDoAluno.get(i).getNomeDisciplina() + " de " + aluno.getNome());
+					"Disciplina " + aluno.listaDeDisciplinasDoAluno.get(i)+ " de " + aluno.getNome());
 		}
 	}
 
 	public static void horariosDoAluno(Aluno aluno) {
 		System.out.println("Aluno: " + aluno.getNome());
 		for (int i = 0; i < aluno.listaDeDisciplinasDoAluno.size(); i++) {
-			System.out.println(aluno.listaDeDisciplinasDoAluno.get(i).getHorarioDisciplina());
+			System.out.println(aluno.listaDeHorariosDoAluno.get(i));
 		}
 	}
 

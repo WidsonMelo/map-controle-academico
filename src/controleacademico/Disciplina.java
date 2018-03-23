@@ -9,13 +9,13 @@ public class Disciplina {
 	public String nomeDisciplina;
 	public String horarioDisciplina;
 	public Professor professorResponsavelDisciplina;
-	public static ArrayList<Aluno> listaDeAlunosNaDisciplina = new ArrayList<>();
+	public static ArrayList<String> listaDeAlunosNaDisciplina = new ArrayList<>();
 
 	public Disciplina(String nomeDisciplina, String horarioDisciplina, Professor professor) {
 		setNomeDisciplina(nomeDisciplina);
 		setHorarioDisciplina(horarioDisciplina);
 		setProfessorResponsavelDisciplina(professor);
-		Controle.adicionarDisciplinaNaLista(this);
+		RDM.adicionarDisciplinaNaLista(this);
 
 	}
 
@@ -24,8 +24,8 @@ public class Disciplina {
 		if (alunoExiste == true) {
 			System.out.println("o aluno " + aluno.getNome() + " já está na disciplina");
 		} else {
-			disciplina.listaDeAlunosNaDisciplina.add(aluno);
-			aluno.listaDeDisciplinasDoAluno.add(disciplina);
+			disciplina.listaDeAlunosNaDisciplina.add(aluno.getNome());
+			aluno.listaDeDisciplinasDoAluno.add(disciplina.getNomeDisciplina());
 			System.out.println(
 					"o aluno " + aluno.getNome() + " foi adicionado na disciplina " + disciplina.getNomeDisciplina());
 		}
@@ -36,7 +36,7 @@ public class Disciplina {
 		System.out.println("==============Alunos da disciplina===============");
 		System.out.println("Disciplina " + disciplina.getNomeDisciplina());
 		for (int i = 0; i < disciplina.listaDeAlunosNaDisciplina.size(); i++) {
-			System.out.println(disciplina.listaDeAlunosNaDisciplina.get(i).getNome());
+			System.out.println(disciplina.listaDeAlunosNaDisciplina.get(i));
 		}
 	}
 
@@ -72,7 +72,7 @@ public class Disciplina {
 	}
 
 	public void insereAlunoNaDisciplina(Aluno aluno) {
-		listaDeAlunosNaDisciplina.add(aluno);
+		listaDeAlunosNaDisciplina.add(aluno.getNome());
 	}
 
 	public String getNomeDisciplina() {

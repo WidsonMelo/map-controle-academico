@@ -5,39 +5,53 @@ import java.util.ArrayList;
 public class Professor {
 
 	public String nomeProfessor;
-	public static ArrayList<Disciplina> listaDeDisciplinasDoProfessor = new ArrayList<>();
+	public static ArrayList<String> listaDeDisciplinasDoProfessor = new ArrayList<>();
+	public static ArrayList<String> listaDeHorariosDoProfessor = new ArrayList<>();
 
 	public Professor(String nomeProfessor) {
 		setNomeProfessor(nomeProfessor);
-		Controle.adicionarProfessorNaLista(this);
+		RDM.adicionarProfessorNaLista(this);
 	}
 
 	public static void disciplinasDoProfessor(Professor professor) {
 		for (int i = 0; i < professor.listaDeDisciplinasDoProfessor.size(); i++) {
-			System.out.println("Disciplina " + professor.listaDeDisciplinasDoProfessor.get(i).getNomeDisciplina()
-					+ " de " + professor.getNomeProfessor());
+			System.out.println("Disciplina " + professor.listaDeDisciplinasDoProfessor.get(i) + " de " + professor.getNomeProfessor());
 		}
 	}
 
 	public static void horariosDoProfessor(Professor professor) {
-		System.out.println("Professor: " + professor.getNomeProfessor());
+		System.out.println("Professor: " + professor.getNomeProfessor());			
 		for (int i = 0; i < professor.listaDeDisciplinasDoProfessor.size(); i++) {
-			System.out.println(professor.listaDeDisciplinasDoProfessor.get(i).getHorarioDisciplina());
+			System.out.println(professor.listaDeHorariosDoProfessor.get(i));
 		}
 	}
-
-	public static boolean adicionarDisciplinaAoProfessor(Disciplina disciplina, Professor professor) {
-		boolean disciplinaExiste = professor.listaDeDisciplinasDoProfessor.contains(disciplina);
+	
+	public static boolean adicionarDisciplinaAoProfessor(Professor professor, Disciplina disciplina) {
+		boolean disciplinaExiste = professor.listaDeDisciplinasDoProfessor.contains(disciplina.getNomeDisciplina());
 		if (disciplinaExiste == true) {
-			System.out.println("o professor já está na disciplina");
+			System.out.println("O professor " + professor.getNomeProfessor() + " já está na disciplina " + disciplina.getNomeDisciplina());
 			return false;
 		} else {
-			professor.listaDeDisciplinasDoProfessor.add(disciplina);
-
-			System.out.println("o aluno não estava na disciplina, foi adicionado");
+			professor.listaDeDisciplinasDoProfessor.add(disciplina.getNomeDisciplina());
+			professor.listaDeHorariosDoProfessor.add(disciplina.getHorarioDisciplina());
+			System.out.println("A disciplina " + disciplina.getNomeDisciplina() + " foi adicionada ao professor " + professor.getNomeProfessor());
 			return true;
 		}
 	}
+
+//	public static boolean adicionarDisciplinaAoProfessor(Disciplina disciplina, Professor professor) {
+//		boolean disciplinaExiste = professor.listaDeDisciplinasDoProfessor.contains(disciplina);
+//		if (disciplinaExiste == true) {
+//			System.out.println("o professor já está na disciplina");
+//			return false;
+//		} else {
+//			professor.listaDeDisciplinasDoProfessor.add(disciplina.getNomeDisciplina());
+//			professor.listaDeHorariosDoProfessor.add(disciplina.getHorarioDisciplina());
+//
+//			System.out.println("O professor " + professor.getNomeProfessor() + " foi adicionado na disciplina " + disciplina.getNomeDisciplina());
+//			return true;
+//		}
+//	}
 
 	@Override
 	public int hashCode() {
